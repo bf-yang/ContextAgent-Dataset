@@ -34,57 +34,6 @@ In this paper, we introduce ContextAgent, the first context-aware proactive LLM 
     <img src="assets/overview_contextagent.png" alt="Dialogue_Teaser" width=100% >
 </div>
 
-## Project Structure
-```
-ContextAgent/
-├─ data/
-│  ├─ cab/
-│  ├─ cab_lite/
-│  ├─ cab_ood/
-├─ prompt/
-├─ results/
-├─ src/
-│  ├─ cab_lite/
-│  ├─ cab_ood/
-│  ├─ data_process/
-│  ├─ icl/
-│  ├─ sft/
-│  ├─ utils/
-├─ .gitignore
-├─ README.md
-```
-
-## Installation
-1. Clone the repository.
-```bash
-git clone https://github.com/bf-yang/ContextAgent.git
-cd ContextAgent
-```
-2. Install packages.
-```bash
-conda env create -f environment.yml
-conda activate contextagent
-```
-
-## Evaluation
-### ICL Evaluation
-- **Proprietary LLMs.** Use API inference for proprietary LLMs (e.g., GPT-4o)
-```shell
-bash src/icl/icl_infer_api.sh
-```
-
-- **Local LLM Inference.** Test open-source LLMs (e.g., Llama-3.1-8B-Instruct and Qwen2.5-7BInstruct)
-```shell
-bash src/icl/icl_infer.sh
-```
-
-### SFT Evaluation
-Running the following script for full SFT experiments, including model training, inference on benchmark, and generate scores.
-```shell
-bash src/sft/sft_exp.sh
-```
-> Note that ```sft_exp.sh``` contains two scripts. The fisrt one ```LLaMA-Factory/experiments/configs/lora_train.sh``` is used for model training. The second one ```src/sft/eval_sft.sh``` is used for evaluation of the fine-tuned LLMs.
-
 
 ## Experiment Results
 Please refer to our paper for more results.
